@@ -20,7 +20,8 @@ def canUnlockAll(boxes):
         if len(locks) > 0:
             for newKey in locks:
                 if not(newKey in visited):
-                    unlocked.add(newKey)
+                    if newKey < len(boxes):
+                        unlocked.add(newKey)
     if len(visited) == n:
         return True
     else:
