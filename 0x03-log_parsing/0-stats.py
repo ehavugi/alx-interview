@@ -10,8 +10,8 @@ lineNumber = 0
 currentStats = {}
 fileSize = 0
 try:
-    while True:
-        line = sys.stdin.readline()
+    
+    for line in sys.stdin:
         a = line.split(" ")
         try:
             code = float(a[-2])
