@@ -10,7 +10,6 @@ lineNumber = 0
 currentStats = {}
 fileSize = 0
 try:
-    
     for line in sys.stdin:
         a = line.split(" ")
         try:
