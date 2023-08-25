@@ -17,8 +17,8 @@ def validUTF8(data: List[int]) -> bool:
     >>> validUTF8([280])
     False
     """
-    state: bool = True
-    skip: int = 0
+    state = True
+    skip = 0
     for index, value in enumerate(data):
         binary = "{0:b}".format(value)
         if len(binary) > 8:
