@@ -1,12 +1,19 @@
 #!/usr/bin/python3
 """
-The utf-8 validation module
+The utf-8 validation module.
+Functions in clude validUTF8
 """
 from typing import List
 
 
 def validUTF8(data: List[int]) -> bool:
     """return True if data is utf-8 otherwise False
+    >>> validUTF8([120])
+    True
+    >>> validUTF8([229, 65, 127, 256])
+    False
+    >>> validUTF8([0, 100, 50,30])
+    True
     """
     state: bool = True
     skip: int = 0
@@ -33,3 +40,8 @@ def validUTF8(data: List[int]) -> bool:
         return False
 
     return state
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
