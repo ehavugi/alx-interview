@@ -12,17 +12,7 @@ def rotate_2d_matrix(matrix):
     """
     n = len(matrix)
     for i in range(n):
-        for j in range(n):
-            if i <= j:
-                x = matrix[i][j]
-                matrix[i][j] = matrix[j][i]
-                matrix[j][i] = x
+        for j in range(i, n):
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     for i in range(n):
-        notdone = True
-        for j in range(n):
-            if j <= n//2:
-                x = matrix[i][j]
-                matrix[i][j] = matrix[i][n-j-1]
-                matrix[i][n-j-1] = x
-
-    pass
+        matrix[i] = matrix[i][::-1]
