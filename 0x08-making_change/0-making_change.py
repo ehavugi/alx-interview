@@ -11,8 +11,14 @@ def makeChange(coins, total):
     """Given a list of coins and totalm return min number of
     coins needed for change
     """
+    # base cases
     if total <= 0:
         return -1
+    if coins is None:
+        return -1
+    if len(coins) == 0:
+        return -1
+    # heurestics for returning early?
     dictD = {}
     for coin in coins:
         dictD[coin] = (total % coin)
@@ -27,12 +33,13 @@ def makeChange(coins, total):
     if not Set and total % extra != 0:
         return -1
     DictC2 = {}
+    # Sort so that can return early
     coins = sorted(coins, reverse=True)
     changeUpTo = [float('inf')] * (total + 1)
     changeUpTo[0] = 0
 
     for coin in coins:
-        for i in range(coin, total+1):
+        for i in range(1, total+1):
 
             if i >= 0:
                 changeUpTo[i] = min(changeUpTo[i], changeUpTo[i - coin] + 1)
