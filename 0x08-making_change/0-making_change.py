@@ -13,7 +13,7 @@ def makeChange(coins, total):
     """
     # base cases
     if total <= 0:
-        return -1
+        return 0
     if coins is None:
         return -1
     if len(coins) == 0:
